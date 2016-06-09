@@ -1,0 +1,75 @@
+﻿<!-- Tic-tac-toe (v1.0)                       -->
+<!-- Date: 30. May 2016                       -->
+<!-- Author: Peter Bollhorn                   -->
+<!-- Made using AngularJS 1.5.3               -->
+<!-- and UI Bootstrap 1.3.3 (Bootstrap 3.3.6) -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="TicTacToeApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Tic-tac-toe</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+
+    <!-- UI Bootstrap -->
+    <script src="js/ui-bootstrap-1.3.3.min.js"></script>
+  
+    <!-- TicTacToeApp -->
+    <script type="text/javascript" src="js/TicTacToeApp.js"></script>
+    
+    <!-- css border styles -->
+    <style type="text/css">
+        .h_border {
+            border-top: 5px solid;
+            border-bottom: 5px solid;
+        }
+        .v_border {
+            border-left: 5px solid;
+            border-right: 5px solid;
+        }
+    </style>
+</head>
+<body ng-controller="mainController">
+
+    <center>
+        <h1>Tic-tac-toe</h1>
+        <br>
+        <table>
+            <tr>
+                <td>                           <img ng-src="{{Images[ Board[0][0] ]}}" ng-click="ClickCell(0,0)"> </td>
+                <td class="v_border">          <img ng-src="{{Images[ Board[0][1] ]}}" ng-click="ClickCell(0,1)"> </td>
+                <td>                           <img ng-src="{{Images[ Board[0][2] ]}}" ng-click="ClickCell(0,2)"> </td>
+            </tr>
+            <tr>
+                <td class="h_border">          <img ng-src="{{Images[ Board[1][0] ]}}" ng-click="ClickCell(1,0)"> </td>
+                <td class="h_border v_border"> <img ng-src="{{Images[ Board[1][1] ]}}" ng-click="ClickCell(1,1)"> </td>
+                <td class="h_border">          <img ng-src="{{Images[ Board[1][2] ]}}" ng-click="ClickCell(1,2)"> </td>
+            </tr>
+            <tr>
+                <td>                           <img ng-src="{{Images[ Board[2][0] ]}}" ng-click="ClickCell(2,0)"> </td>
+                <td class="v_border">          <img ng-src="{{Images[ Board[2][1] ]}}" ng-click="ClickCell(2,1)"> </td>
+                <td>                           <img ng-src="{{Images[ Board[2][2] ]}}" ng-click="ClickCell(2,2)"> </td>
+            </tr>
+        </table>
+        <br>
+        <h4>Play vs friend: {{Message}}</h4>
+        <br>
+        <a ng-click="NewGame()" role="button" class="btn btn-primary btn-lg">New Game</a>
+    </center>
+
+    <!-- Preload Images-->
+    <link rel="prefetch" href="{{Images[1]}}">
+    <link rel="prefetch" href="{{Images[2]}}">
+    <link rel="prefetch" href="{{Images[3]}}">
+    <link rel="prefetch" href="{{Images[4]}}">
+</body>
+</html>
